@@ -17,6 +17,9 @@ public class ExecuteQuery02 {
                 "LIMIT 1\n";
 
         //3. Step: receive the resultSet
+        //1.Example: Find the company and number_of_employees
+        // whose number_of_employees is the second highest from the companies table
+
         //1. way:
         ResultSet resultSet1 =  statement.executeQuery(sql1);
         while (resultSet1.next()){
@@ -35,6 +38,15 @@ public class ExecuteQuery02 {
             System.out.println(resultSet2.getString(1)+ " - " + resultSet2.getInt(2));
         }
 
+
+        //2.Example: Find the company names and number of employees
+        // whose number of employees is less than the average number of employees
+        String sql3 = "select company, number_of_employees from companies\n" +
+                "where number_of_employees < (select avg(number_of_employees) from companies)";
+        ResultSet resultSet3 =  statement.executeQuery(sql3);
+        while (resultSet3.next()){
+            System.out.println(resultSet3.getString(1)+ " : " + resultSet3.getInt(2));
+        }
 
 
 
