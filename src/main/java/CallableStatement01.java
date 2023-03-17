@@ -6,14 +6,14 @@ public class CallableStatement01 {
         Statement statement = connection.createStatement();
 
 
-//1.Example: Create a function which uses 2 parameters and return the sum of the parameters
+        //1.Example: Create a function which uses 2 parameters and return the sum of the parameters
         //1.step:
         String sql1= "CREATE OR REPLACE FUNCTION additionF(x NUMERIC, y NUMERIC) RETURNS NUMERIC LANGUAGE plpgsql AS $$ BEGIN RETURN x+y; END $$";
 
         //2.step:Execute the function
         statement.execute(sql1);
 
-        //3.step;
+        //3.step:
         CallableStatement cs1= connection.prepareCall("{? = call additionF(?, ?)}");
 
         //4.step:
@@ -52,6 +52,7 @@ public class CallableStatement01 {
         //6th.step: Print the results
 
         System.out.println(cs2.getObject(1));//150.7200000000000000
+        System.out.printf("%.2f", cs2.getObject(1));//150,72
 
 
 
