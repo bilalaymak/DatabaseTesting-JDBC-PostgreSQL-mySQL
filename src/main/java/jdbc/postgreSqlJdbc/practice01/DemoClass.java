@@ -5,7 +5,7 @@ import java.sql.*; //1. step import packages
 public class DemoClass {
     public static void main(String[] args) {
 
-        String url = "jdbc:postgresql://localhost:5432/DBPractice01";
+        String url = "jdbc:postgresql://localhost:5432/DBPractice";
         String username = "postgres";
         String password = "12345";
         String query = "SELECT * FROM students";
