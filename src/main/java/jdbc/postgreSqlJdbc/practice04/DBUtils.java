@@ -1,4 +1,4 @@
-package practice02.practice;
+package jdbc.postgreSqlJdbc.practice04;
 
 import java.sql.*;
 import java.util.ArrayList;

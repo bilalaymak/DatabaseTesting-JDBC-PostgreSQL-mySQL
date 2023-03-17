@@ -1,3 +1,5 @@
+package jdbc.postgreSqlJdbc.practice05;
+
 import java.sql.*;
 
 public class CallableStatement01 {

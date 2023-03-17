@@ -1,4 +1,4 @@
-package practice02.query;
+package jdbc.postgreSqlJdbc.practice03;
 
 public class Urun {
 

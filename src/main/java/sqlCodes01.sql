@@ -38,8 +38,8 @@ select country_name from countries
 where region_id = 1;
 
 --2.Example: Select the country_id and country_name whose region_id's are greater than 2
-
-SELECT country_id, country_name FROM countries WHERE region_id > 2;
+select country_id, country_name from countries
+where region_id > 2;
 
 
 CREATE TABLE companies
@@ -54,8 +54,11 @@ INSERT INTO companies VALUES(102, 'MICROSOFT', 10000);
 INSERT INTO companies VALUES(103, 'APPLE', 21000);
 
 --3.Example: Select all columns whose number_of_employees is the lowest from companies table
+select * from companies
+where number_of_employees = (select min(number_of_employees) from companies);
 
-SELECT * FROM companies WHERE number_of_employees = (SELECT MIN(number_of_employees) FROM companies);
+
+
 
 drop table companies;
 

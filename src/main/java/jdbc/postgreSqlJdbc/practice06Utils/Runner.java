@@ -1,7 +1,6 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
+package jdbc.postgreSqlJdbc.practice06Utils;
+
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Runner {
     public static void main(String[] args) throws SQLException {

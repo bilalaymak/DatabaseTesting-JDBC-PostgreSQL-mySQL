@@ -1,4 +1,4 @@
-package jdbc.postgreSqlJdbc;
+package jdbc.postgreSqlJdbc.practice01;
 
 import java.sql.*; //1. step import packages
 

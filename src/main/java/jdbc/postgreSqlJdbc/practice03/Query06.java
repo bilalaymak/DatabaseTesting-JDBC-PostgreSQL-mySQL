@@ -1,8 +1,6 @@
-package practice02.query;
+package jdbc.postgreSqlJdbc.practice03;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Query06 {
 
