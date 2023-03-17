@@ -1,4 +1,4 @@
-package practice;
+package practice02.practice;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

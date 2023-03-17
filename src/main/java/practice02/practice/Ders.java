@@ -1,4 +1,4 @@
-package practice;
+package practice02.practice;
 
 public class Ders {
 

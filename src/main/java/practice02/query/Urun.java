@@ -1,4 +1,4 @@
-package query;
+package practice02.query;
 
 public class Urun {
 

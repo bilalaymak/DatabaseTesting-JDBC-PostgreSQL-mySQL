@@ -1,3 +1,5 @@
+package practice02;
+
 import java.sql.*;
 
 public class Query03 {

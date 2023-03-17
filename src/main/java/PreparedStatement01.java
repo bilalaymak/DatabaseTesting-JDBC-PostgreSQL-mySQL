@@ -37,6 +37,9 @@ public class PreparedStatement01 {
             );
         }
 
+          statement1.close();
+          statement.close();
+          connection.close();
 
 
 
