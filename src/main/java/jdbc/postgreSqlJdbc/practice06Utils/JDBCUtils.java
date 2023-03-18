@@ -1,9 +1,8 @@
 package jdbc.postgreSqlJdbc.practice06Utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JDBCUtils {
 
@@ -11,6 +10,7 @@ public class JDBCUtils {
 
     public static Connection connection;
     public static Statement statement;
+    public static ResultSet resultSet;
 
 
     //1. step: create the connection with the database
@@ -72,6 +72,26 @@ public class JDBCUtils {
                     throw new RuntimeException(e);
                 }
             }
+
+     //the method to put column data into a list
+    public static List<Object> getColumnList(String columnName, String tableName){
+        List<Object> list = new ArrayList<>();
+
+       String sql = "SELECT " + columnName + " FROM " + tableName;
+        try {
+            resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+
+                list.add(resultSet.getObject(1));
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return list;
+    }
 
 
 

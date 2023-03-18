@@ -16,7 +16,7 @@ public class Practice04 {
         System.out.println("workers table created");
 
 
-
+//quer04
 
 
         ResultSet resultSet = statement.executeQuery("select * from school");
