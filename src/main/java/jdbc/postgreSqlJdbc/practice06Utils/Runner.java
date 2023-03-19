@@ -6,7 +6,7 @@ public class Runner {
     public static void main(String[] args) throws SQLException {
 
         //1. step: create the connection with the database
-        JDBCUtils.connectToDatabase();
+        JDBCUtils.connectToDatabase("localhost","DBPractice","postgres","12345");
 
         //2. step: create statement
         JDBCUtils.createStatement();

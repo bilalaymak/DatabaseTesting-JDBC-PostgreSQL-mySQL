@@ -14,9 +14,9 @@ public class JDBCUtils {
 
 
     //1. step: create the connection with the database
-   public static Connection connectToDatabase() {
+   public static Connection connectToDatabase(String hostName,String databaseName,String userName,String password) {
        try {
-          connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/DBPractice", "postgres", "12345");
+          connection = DriverManager.getConnection("jdbc:postgresql://" + hostName + ":5432/" + databaseName, userName, password);
            System.out.println("connection is successful");
        } catch (SQLException e) {
            throw new RuntimeException(e);
