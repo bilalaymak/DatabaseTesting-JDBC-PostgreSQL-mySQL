@@ -1,4 +1,4 @@
-import jdbc.postgreSqlJdbc.practice06Utils.JDBCUtils;
+import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
 import org.junit.Test;
 
 import java.sql.Statement;
@@ -39,7 +39,7 @@ public class GmiBankTest {
          System.out.println("numOfNullElements = " + numOfNullElements);
           assertEquals(1338,numOfNullElements);
           //User closes the connection
-          JDBCUtils.closeConnectionStatement();
+          JDBCUtils.closeConnection();
 
     }
 

@@ -1,4 +1,4 @@
-import jdbc.postgreSqlJdbc.practice06Utils.JDBCUtils;
+import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,13 +16,13 @@ public class CountriesTest {
         JDBCUtils.connectToDatabase("localhost","DBPractice","postgres","12345");
         JDBCUtils.createStatement();
 //        User sends the query to get the region ids from "countries" table
-         String sql1 = "select region_id from countries";
-          ResultSet resultSet = JDBCUtils.statement.executeQuery(sql1);
+        String sql1 = "select region_id from countries";
+        ResultSet resultSet = JDBCUtils.statement.executeQuery(sql1);
 
-          List<Integer> list = new ArrayList<>();
-          while (resultSet.next()){
-              list.add(resultSet.getInt(1));
-          }
+        List<Integer> list = new ArrayList<>();
+        while (resultSet.next()){
+            list.add(resultSet.getInt(1));
+        }
         System.out.println("list of region ids : " + list);
 
 //        Verify that the number of region ids greater than 1 is 17.
@@ -38,7 +38,7 @@ public class CountriesTest {
 
 //        User closes the connection
 
-        JDBCUtils.closeConnectionStatement();
+        JDBCUtils.closeConnection();
 
 
 

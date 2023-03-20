@@ -1,4 +1,4 @@
-import jdbc.postgreSqlJdbc.practice06Utils.JDBCUtils;
+import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
 import org.junit.Test;
 
 import java.sql.Statement;
@@ -39,8 +39,9 @@ public class MedunnaTest {
                  ifPresentOrElse(
                  (obj) -> System.out.println("At least one room created by John Doe."),
                  () -> System.out.println("No rooms created by John Doe.")
+
          );
-         JDBCUtils.closeConnectionStatement();//No rooms created by John Doe.
+         JDBCUtils.closeConnection();//No rooms created by John Doe.
 
 
 
