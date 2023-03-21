@@ -5,12 +5,12 @@ public class Doctor {
     private int id;
     private String name;
     private String field;
-    private String salary;
+    private int salary;
 
     public Doctor() {
     }
 
-    public Doctor(int id, String name, String field, String salary) {
+    public Doctor(int id, String name, String field, int salary) {
         this.id = id;
         this.name = name;
         this.field = field;
@@ -41,11 +41,11 @@ public class Doctor {
         this.field = field;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
