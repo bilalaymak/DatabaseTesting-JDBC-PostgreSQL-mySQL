@@ -20,6 +20,8 @@ public class Practice06 {
         statement.execute(sql);
         ResultSet rs = statement.executeQuery("select * from workers");
 
+        //we use execute() method for DDL operations (create,alter,drop table)
+
             while (rs.next()){
                 String userData =
                         rs.getString(1) + " : " +
