@@ -24,7 +24,7 @@ public class CountriesTestJunit {
     @Test
     public void countryTest(){
         // User connects to the database
-        JDBCUtils.connectToDatabase("localhost","DBPractice","postgres","12345");
+        JDBCUtils.createConnection();
         JDBCUtils.createStatement();
 
         // User sends the query to get the region ids from "countries" table

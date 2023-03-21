@@ -25,7 +25,7 @@ public class GmiBankTest {
     @Test
     public void gmiBankTest(){
         // User connects to the database
-        JDBCUtils.connectToDatabase("gmibank.com","gmibank_db","techprodb_user","Techpro_@126");
+        JDBCUtils.createConnection("gmibank.com","gmibank_db","techprodb_user","Techpro_@126");
         Statement statement = JDBCUtils.createStatement();
 
 

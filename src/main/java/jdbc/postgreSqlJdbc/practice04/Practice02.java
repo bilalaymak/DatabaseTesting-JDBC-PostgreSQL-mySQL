@@ -23,6 +23,8 @@ public class Practice02 {
         statement.execute(sql1);
 
         //insert datas into the table by using pojo class
+
+        //firstly we created datas in our local
         List<Doctor> recordsDoctors = new ArrayList<>();
         recordsDoctors.add(new Doctor(20,"Ali Can","internal medicine",500));
         recordsDoctors.add(new Doctor(21,"Cem yildiz","internal medicine",600));
@@ -35,8 +37,19 @@ public class Practice02 {
         recordsDoctors.add(new Doctor(28,"yunus Van","internal medicine",690));
         recordsDoctors.add(new Doctor(29,"Ahmet Yan","dermatology",700));
 
-        PreparedStatement data = connection.prepareStatement("insert into doctors values (?,?,?,?)");
+        //then we sent the datas to database
+        PreparedStatement doctorsTable = connection.prepareStatement("insert into doctors values (?,?,?,?)");
+        for(Doctor w: recordsDoctors){
+            doctorsTable.setInt(1,w.getId()); //20
+            doctorsTable.setString(2,w.getName()); //Ali Can
+            doctorsTable.setString(3,w.getField()); //Internal medicine
+            doctorsTable.setInt(4,w.getSalary()); //500
+            doctorsTable.addBatch();
+        }
+           doctorsTable.executeBatch();
 
+        connection.close();
+        statement.close();
 
 
 

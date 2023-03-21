@@ -35,8 +35,8 @@ public class Practice01 {
         PreparedStatement table = connection.prepareStatement("insert into products values (?,?,?)");
         for (Product w: records){
             table.setInt(1,w.getId()); //id: 100
-            table.setString(2,w.getName()); // name: Laptop
-            table.setDouble(3,w.getPrice()); // 35000
+            table.setString(2,w.getName()); //name: Laptop
+            table.setDouble(3,w.getPrice()); //salary: 35000
             table.addBatch(); //merges all the data
         }
         table.executeBatch(); //sends all the data to products table

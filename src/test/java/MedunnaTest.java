@@ -24,7 +24,7 @@ public class MedunnaTest {
     public void medunnaTest(){
 
          // User connects to the database
-         JDBCUtils.connectToDatabase("medunna.com","medunna_db","medunna_user","medunna_pass_987");
+         JDBCUtils.createConnection("medunna.com","medunna_db","medunna_user","medunna_pass_987");
          Statement statement = JDBCUtils.createStatement();
 
          //User sends the query to get the names of created_by column from "room" table

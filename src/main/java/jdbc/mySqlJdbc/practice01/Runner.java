@@ -143,7 +143,7 @@ Workers{id='127', name='Bilal Aymak', address='Bingol', exam_grade='80', registr
     public static void deleteData ( int id) throws SQLException {
             DbHelper dbHelper = new DbHelper();
             Connection connection = null;
-            PreparedStatement statement = null;
+            PreparedStatement preparedStatement = null;
 
 
             try {
@@ -154,17 +154,17 @@ Workers{id='127', name='Bilal Aymak', address='Bingol', exam_grade='80', registr
                     System.out.println("connection success");
                 }
                 String sq1 = "delete from workers where id = ?;";
-                statement = connection.prepareStatement(sq1);
-                statement.setInt(1, id);
+                preparedStatement = connection.prepareStatement(sq1);
+                preparedStatement.setInt(1, id);
 
-                int resultOfUpdate = statement.executeUpdate();
+                int resultOfUpdate = preparedStatement.executeUpdate();
                 System.out.println("data is deleted : " + resultOfUpdate);
 
 
             } catch (SQLException exception) {
                 dbHelper.showErrorMessage(exception);
             } finally {
-                statement.close();
+                preparedStatement.close();
                 connection.close();
             }
         }

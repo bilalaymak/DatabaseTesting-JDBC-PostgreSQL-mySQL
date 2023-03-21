@@ -13,7 +13,7 @@ public class CountriesTest {
 
 
 //        User connects to the database
-        JDBCUtils.connectToDatabase("localhost","DBPractice","postgres","12345");
+        JDBCUtils.createConnection();
         JDBCUtils.createStatement();
 //        User sends the query to get the region ids from "countries" table
         String sql1 = "select region_id from countries";
