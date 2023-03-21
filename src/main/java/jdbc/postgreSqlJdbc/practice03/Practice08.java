@@ -5,7 +5,6 @@ import java.sql.*;
 public class Practice08 {
     public static void main(String[] args) throws SQLException {
 
-        //add a new record to students table (300,'Sena Canturk',21,'K')
         final String url = "jdbc:postgresql://localhost:5432/DBPractice";
         final String username = "postgres";
         final String password = "12345";
