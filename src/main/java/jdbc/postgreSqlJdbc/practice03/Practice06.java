@@ -1,7 +1,5 @@
 package jdbc.postgreSqlJdbc.practice03;
 
-import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
-
 import java.sql.*;
 
 public class Practice06 {

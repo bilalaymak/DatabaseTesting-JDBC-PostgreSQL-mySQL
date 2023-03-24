@@ -1,4 +1,4 @@
-import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
+import jdbc.postgreSqlJdbc.Utils.JdbcUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,12 +12,12 @@ public class CountriesTest {
     public static void main(String[] args) throws SQLException {
 
 
-//        User connects to the database
-        JDBCUtils.createConnection();
-        JDBCUtils.createStatement();
-//        User sends the query to get the region ids from "countries" table
+  //      User connects to the database
+        JdbcUtils.createConnection();
+        JdbcUtils.createStatement();
+ //      User sends the query to get the region ids from "countries" table
         String sql1 = "select region_id from countries";
-        ResultSet resultSet = JDBCUtils.statement.executeQuery(sql1);
+        ResultSet resultSet = JdbcUtils.statement.executeQuery(sql1);
 
         List<Integer> list = new ArrayList<>();
         while (resultSet.next()){
@@ -38,7 +38,7 @@ public class CountriesTest {
 
 //        User closes the connection
 
-        JDBCUtils.closeConnection();
+        JdbcUtils.closeConnection();
 
 
 

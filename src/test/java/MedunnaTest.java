@@ -1,4 +1,5 @@
-import jdbc.postgreSqlJdbc.Utils.JDBCUtils;
+import jdbc.postgreSqlJdbc.Utils.DatabaseUtils;
+import jdbc.postgreSqlJdbc.Utils.JdbcUtils;
 import org.junit.Test;
 
 import java.sql.Statement;
@@ -24,11 +25,11 @@ public class MedunnaTest {
     public void medunnaTest(){
 
          // User connects to the database
-         JDBCUtils.createConnection("medunna.com","medunna_db","medunna_user","medunna_pass_987");
-         Statement statement = JDBCUtils.createStatement();
+         JdbcUtils.createConnection("medunna.com","medunna_db","medunna_user","medunna_pass_987");
+         Statement statement = JdbcUtils.createStatement();
 
          //User sends the query to get the names of created_by column from "room" table
-         List<Object> objectList = JDBCUtils.getColumnList("created_by","room");
+         List<Object> objectList = DatabaseUtils.getColumnList("created_by","room");
          System.out.println("objectList = " + objectList);
 
          //Verify that there are some rooms created by "john doe".
@@ -41,7 +42,7 @@ public class MedunnaTest {
                  () -> System.out.println("No rooms created by John Doe.")
 
          );
-         JDBCUtils.closeConnection();//No rooms created by John Doe.
+         JdbcUtils.closeConnection();//No rooms created by John Doe.
 
 
 
