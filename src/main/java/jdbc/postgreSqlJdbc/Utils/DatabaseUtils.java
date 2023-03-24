@@ -96,20 +96,7 @@ public class DatabaseUtils {
         }
         return columnData;
     }
-    public static List<Object> getColumnList( String tableName,int columnIndex) {
-        List<Object> columnData = new ArrayList<>();
-        //SELECT        id          FROM      students
-        String query = "SELECT " + columnIndex + " FROM " + tableName;
-         resultSet = executeQuery(query);
-        try {
-            while (resultSet.next()) {
-                columnData.add(resultSet.getObject(columnIndex));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return columnData;
-    }
+
     public static void insertDataIntoTable(String tableName, String... columnName_Value) {
 
         StringBuilder columnNames = new StringBuilder("");

@@ -1,5 +1,6 @@
 import jdbc.postgreSqlJdbc.Utils.DatabaseUtils;
 import jdbc.postgreSqlJdbc.Utils.JdbcUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.Statement;
@@ -15,7 +16,7 @@ public class MedunnaTest {
      User sends the query to get the names of created_by column from "room" table
 
    Then
-     Verify that there are some rooms created by "john doe".
+     Verify that there are some rooms created by "john_doe".
 
    And
      User closes the connection
@@ -27,6 +28,8 @@ public class MedunnaTest {
          // User connects to the database
          JdbcUtils.createConnection("medunna.com","medunna_db","medunna_user","medunna_pass_987");
          Statement statement = JdbcUtils.createStatement();
+         //we use statement to send SQL commands to the database
+         //to send our commands collective we use preparedStatement
 
          //User sends the query to get the names of created_by column from "room" table
          List<Object> objectList = DatabaseUtils.getColumnList("created_by","room");
@@ -35,19 +38,22 @@ public class MedunnaTest {
          //Verify that there are some rooms created by "john doe".
          objectList.
                  stream().
-                 filter(obj -> obj.equals("john doe")).
+                 filter(obj -> obj.equals("john_doe")).
                  findAny().
                  ifPresentOrElse(
                  (obj) -> System.out.println("At least one room created by John Doe."),
                  () -> System.out.println("No rooms created by John Doe.")
 
          );
+         Assert.assertTrue("no records found in database",objectList.contains("john_doe"));
+
          JdbcUtils.closeConnection();//No rooms created by John Doe.
 
 
 
 
      }
+
 
 
 
