@@ -96,7 +96,7 @@ public class DatabaseUtils {
         }
         return columnData;
     }
-    public static List<Object> getColumnList(int columnIndex, String tableName) {
+    public static List<Object> getColumnList( String tableName,int columnIndex) {
         List<Object> columnData = new ArrayList<>();
         //SELECT        id          FROM      students
         String query = "SELECT " + columnIndex + " FROM " + tableName;
