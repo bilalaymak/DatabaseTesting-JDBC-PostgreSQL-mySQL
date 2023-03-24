@@ -7,6 +7,7 @@ public class JdbcUtils {
     public static Connection connection;
     public static Statement statement;
     public static ResultSet resultSet;
+    public static PreparedStatement preparedStatement;
 
     //create connection 1
     public static Connection createConnection() {
@@ -113,6 +114,16 @@ public class JdbcUtils {
         }
     }
 
+    public static PreparedStatement preparedStatement(String sql){
+        connection = createConnection();
+        statement = createStatement();
+        try {
+            preparedStatement =connection.prepareStatement(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return preparedStatement;
+    }
 
 
 

@@ -4,8 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jdbc.postgreSqlJdbc.Utils.JdbcUtils.execute;
-import static jdbc.postgreSqlJdbc.Utils.JdbcUtils.executeQuery;
+import static jdbc.postgreSqlJdbc.Utils.JdbcUtils.*;
 
 
 public class DatabaseUtils {
@@ -14,6 +13,26 @@ public class DatabaseUtils {
     public static Connection connection;
     public static Statement statement;
     public static ResultSet resultSet;
+    public static ResultSetMetaData metaData;
+
+    public static void printResultSet(String query) {
+        try {
+            statement = createStatement();
+            resultSet = statement.executeQuery(query);
+
+            metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            while (resultSet.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    System.out.print(metaData.getColumnName(i) + ": " + resultSet.getObject(i) + ", ");
+                }
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static List<Object> getColumnData(String query, String column) {
         resultSet = executeQuery(query);
@@ -25,7 +44,7 @@ public class DatabaseUtils {
                 rowList.add(resultSet.getObject(column));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         return rowList;
@@ -40,7 +59,7 @@ public class DatabaseUtils {
                 rowList.add(resultSet.getObject(column));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         return rowList;
@@ -57,7 +76,7 @@ public class DatabaseUtils {
                 columns.add(rsmd.getColumnName(i));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
         return columns;
@@ -70,7 +89,7 @@ public class DatabaseUtils {
         resultSet = executeQuery(query);
         try {
             while (resultSet.next()) {
-                columnData.add(resultSet.getObject(columnName));//add methodu ile alınan sütun değerlerini List'e ekliyor.
+                columnData.add(resultSet.getObject(columnName));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -97,14 +116,14 @@ public class DatabaseUtils {
         StringBuilder values = new StringBuilder("");
 
         for (String w : columnName_Value) {
-            columnNames.append(w.split(" ")[0]).append(",");//Bir String değeri ikiye bölüp birinciyi sütun adı, ikinciyi sütun değeri olarak alıyorum.
+            columnNames.append(w.split(" ")[0]).append(",");
             values.append(w.split(" ")[1]).append(",");
         }
 
-        columnNames.deleteCharAt(columnNames.lastIndexOf(","));//En son virgülü siliyor.
+        columnNames.deleteCharAt(columnNames.lastIndexOf(","));
         values.deleteCharAt(values.lastIndexOf(","));
 
-        //"INSERT INTO      members     ( id, name, address ) VALUES(123, 'john', 'new york')"
+                       //"INSERT INTO      members     ( id, name, address ) VALUES(123, 'john', 'new york')"
         String query = "INSERT INTO " + tableName + "(" + columnNames + ") VALUES(" + values + ")";
 
         execute(query);//execute methodu üstte oluşturuldu, query'yi çalıştırıyor.
@@ -112,9 +131,12 @@ public class DatabaseUtils {
 
     }
 
-    public static void createTable(String tableName, String... columnName_dataType) {
-        StringBuilder columnName_dataValue = new StringBuilder("");
 
+
+    public static void createTable(String tableName, String... columnName_dataType) {
+        connection = createConnection();
+        statement = createStatement();
+        StringBuilder columnName_dataValue = new StringBuilder("");
         for (String w : columnName_dataType) {
 
             columnName_dataValue.append(w).append(",");
@@ -124,7 +146,7 @@ public class DatabaseUtils {
         columnName_dataValue.deleteCharAt(columnName_dataValue.length() - 1);
 
         try {
-            statement.execute("CREATE TABLE " + tableName + "(" + columnName_dataValue + ")");
+         statement.execute("CREATE TABLE " + tableName + "(" + columnName_dataValue + ")");
             System.out.println("Table " + tableName + " successfully created!");
         } catch (SQLException e) {
             throw new RuntimeException(e);
