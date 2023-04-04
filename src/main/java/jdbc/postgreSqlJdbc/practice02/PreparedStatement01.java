@@ -12,6 +12,7 @@ public class PreparedStatement01 {
         // if the company name is IBM by using prepared statement
         //1. step: create prepared statement query
         String sql1 = "UPDATE companies SET number_of_employees = ? WHERE company = ?";
+   //     String sql3 = "insert into workers values (?,?,?,?)";
 
         //2. step: create prepared statement object
         PreparedStatement ps1 = connection.prepareStatement(sql1);

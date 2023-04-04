@@ -7,11 +7,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class CountriesTestJunit {
-
-
        /*
  Given
    User connects to the database
@@ -43,9 +41,12 @@ public class CountriesTestJunit {
 
         assertEquals(17, listSize);
 
+        assertFalse(list.size() == 16);
+        assertTrue(list.size() == 17);
+
         //   User closes the connection
         JdbcUtils.closeConnection();
-
-
     }
+
+
 }

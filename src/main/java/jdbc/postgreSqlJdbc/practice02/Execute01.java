@@ -18,7 +18,7 @@ public class Execute01 {
         //4th Step: Execute Query
 
         /*
-        execute() method can be used in DDL(Data Definition Language --> Create, Drop, Alter Table) DQL(Data Query Language --> SELECT)
+        execute() method can be used in DDL(Data Definition Language --> Create, Drop, Alter, Truncate Table) DQL(Data Query Language --> SELECT)
             1) If you use execute() method with DDL, you will always get false
             2) If you use execute() method with DQL, you will get false or true
                 If you get the ResultSet as return you will get true otherwise you will get false

@@ -43,7 +43,6 @@ public class MedunnaTest {
                  ifPresentOrElse(
                  (obj) -> System.out.println("At least one room created by John Doe."),
                  () -> System.out.println("No rooms created by John Doe.")
-
          );
          Assert.assertTrue("no records found in database",objectList.contains("john_doe"));
 

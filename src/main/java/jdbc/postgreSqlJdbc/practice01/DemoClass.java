@@ -1,5 +1,7 @@
 package jdbc.postgreSqlJdbc.practice01;
 
+import jdbc.postgreSqlJdbc.practice02.ExecuteQuery01;
+
 import java.sql.*; //1. step import packages
 
 public class DemoClass {
@@ -19,6 +21,9 @@ public class DemoClass {
 
 
             Statement st = connection.createStatement(); //4. step creating the statement
+
+
+
             ResultSet rs = st.executeQuery(query);//5. step executing the query
 
             while (rs.next()) {
